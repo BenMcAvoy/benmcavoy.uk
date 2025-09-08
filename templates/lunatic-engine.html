@@ -1,0 +1,48 @@
+{% extends 'fragments/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="project-hero">
+    <img src="{{ url_for('static', filename='lunaticeditor.png') }}" alt="Lunatic Engine editor screenshot">
+  </div>
+  <div class="meta-bar">
+    <div class="tags">
+      <span class="tag">C++20</span>
+      <span class="tag">OpenGL 4.6</span>
+      <span class="tag">LuaJIT</span>
+      <span class="tag">ImGui</span>
+      <span class="tag">RTTR</span>
+    </div>
+    <div class="actions">
+  <a class="btn" href="https://github.com/BenMcAvoy/LunaticEngine" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i> Repo</a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h1>Lunatic Engine</h1>
+    <p>Modern 2D engine and editor focused on fast iteration — OpenGL 4.6, ImGui docking, LuaJIT scripting, and RTTR-based scenes.</p>
+
+    <h2>TL;DR</h2>
+    <ul>
+      <li>Open <code>LunaticEngine.sln</code> in Visual Studio 2022 (x64); vcpkg manifest pulls dependencies automatically</li>
+      <li>Run <strong>LunaticEditor</strong> (editor) or <strong>LunaticRuntime</strong> (loads <code>LunaticRuntime/scene.json</code>)</li>
+    </ul>
+    <p>Cross-platform portability is planned; current solution targets Windows/MSBuild with vcpkg integration.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>2D rendering (Camera, Sprite, Texture, Framebuffer) with a default shader</li>
+      <li>Scene graph with reflection (RTTR) and JSON save/load</li>
+      <li>Lua scripting with coroutines and reflected properties/methods</li>
+      <li>ImGui editor with dockspace, viewport, inspector, play/stop</li>
+    </ul>
+
+    <h2>Layout</h2>
+    <ul>
+      <li><code>LunaticEngine/</code>: core engine (core/, model/, render/)</li>
+      <li><code>LunaticEditor/</code>: editor application</li>
+      <li><code>LunaticRuntime/</code>: runtime app and assets (scene.json)</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

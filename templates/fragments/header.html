@@ -1,0 +1,10 @@
+<header>
+    <h1><i data-lucide="origami"></i> benmcavoy.uk</h1>
+    <nav class="header-nav" role="navigation" aria-label="Main">
+        <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %} is-active {% endif %}">home</a>
+        <a href="{{ url_for('about') }}" class="{% if request.endpoint == 'about' %} is-active {% endif %}">about</a>
+        <a href="{{ url_for('cv') }}" class="{% if request.endpoint == 'cv' %} is-active {% endif %}">cv</a>
+        <a href="{{ url_for('contact') }}" class="{% if request.endpoint == 'contact' %} is-active {% endif %}">contact</a>
+    </nav>
+    {% block header_extra %}{% endblock %}
+</header>

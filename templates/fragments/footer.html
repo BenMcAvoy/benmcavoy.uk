@@ -1,0 +1,14 @@
+<footer>
+    <div class="footer-left">
+        <a href="https://github.com/benmcavoy" rel="noopener noreferrer"><i data-lucide="github"></i> github</a>
+        <a href="https://www.linkedin.com/in/ben-mcavoy-b72a8128a" rel="noopener noreferrer"><i data-lucide="linkedin"></i> linkedin</a>
+        <a href="https://benmcavoy.uk" rel="noopener noreferrer"><i data-lucide="globe"></i> benmcavoy.uk</a>
+    </div>
+
+    <div class="footer-right">
+        <a href="{{ url_for('home') }}" rel="noopener noreferrer" class="{% if request.endpoint == 'home' %}is-active{% endif %}">home <i data-lucide="home"></i></a>
+        <a href="{{ url_for('contact') }}" rel="noopener noreferrer" class="{% if request.endpoint == 'contact' %}is-active{% endif %}">contact <i data-lucide="mail"></i></a>
+        <a href="{{ url_for('about') }}" rel="noopener noreferrer" class="{% if request.endpoint == 'about' %}is-active{% endif %}">about me <i data-lucide="user"></i></a>
+        <a href="{{ url_for('cv') }}" rel="noopener noreferrer" class="{% if request.endpoint == 'cv' %}is-active{% endif %}">my cv <i data-lucide="file"></i></a>
+    </div>
+</footer>

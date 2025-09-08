@@ -1,0 +1,26 @@
+{% extends 'fragments/base.html' %}
+
+{% block content %}
+<section class="page">
+    <form class="contact-form" action="/contact" method="post" novalidate>
+        <h1>Contact</h1>
+        <p class="contact-intro">Have a question or want to work together? Send me a short message and I'll get back to you.</p>
+
+        <br/>
+
+        <div class="form-row">
+            <label for="email">Your email</label>
+            <input id="email" class="form-control" type="email" name="email" placeholder="me@example.com" required aria-required="true">
+        </div>
+
+        <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" name="message" placeholder="Write a short message" required aria-required="true"></textarea>
+        </div>
+
+        <div class="form-actions">
+            <input type="submit" value="Send" class="btn-primary">
+        </div>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,414 @@
+:root {
+    --padding-size: 10px;
+    --outline-color: #2d2d2d;
+}
+
+header {
+    /* vertical padding is intentionally small so header height = text height + padding */
+    padding: 0 var(--padding-size);
+    outline: var(--outline-color) solid 3px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+}
+/* header nav */
+.header-nav { display: flex; gap: 12px; align-items: center; }
+.header-nav a { display: inline-block; padding: 4px 2px; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    background-color: #161616;
+    color: #d9d9d9;
+
+    font-family: 'JetBrains Mono', 'Cascadia Code', 'Courier New', Courier, monospace;
+}
+
+a {
+    color: inherit; /* disable text color for hyperlinks */
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: var(--padding-size);
+}
+
+/* center content to align with cards grid */
+.container {
+    max-width: 1200px;
+    margin: 18px auto;
+}
+
+.page {
+    border: 3px solid var(--outline-color);
+    border-radius: 10px;
+    background: #141414;
+    padding: 12px;
+    margin-bottom: 14px;
+}
+
+/* force footer to bottom of page, even if content is short */
+footer {
+    padding: var(--padding-size);
+    outline: var(--outline-color) solid 3px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* left | right */
+    align-items: center;
+    gap: 10px;
+}
+
+/* horizontal means anything inside should be in a row */
+.horizontal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* footer left section, should all be vertically stacked */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+/* center link exactly in the middle */
+/* removed footer-center; center column no longer used */
+
+/* unify link look; highlight active */
+.footer-center a,
+.footer-left a,
+.footer-right a { padding: 2px 0; display: inline-block; }
+
+/* underline for the current page */
+.is-active { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+
+/* footer right section, should be in a row, should be aligned to the right */
+.footer-right {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    text-align: right;
+    align-items: flex-end;
+}
+
+/* card style for project showcase */
+.card {
+    border: 3px solid var(--outline-color);
+    border-radius: 10px;
+    padding: var(--padding-size);
+    margin-bottom: var(--padding-size);
+    text-align: center;
+}
+
+/* cards container, three per row */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* three equal columns */
+    gap: calc(var(--padding-size) * 1.5);
+    max-width: 1200px; /* constrain to a pleasant reading width */
+    margin: 18px auto; /* center the grid */
+    align-items: stretch; /* make cards fill the grid row height */
+}
+
+/* card visual and layout improvements */
+.card {
+    box-sizing: border-box;
+    width: 100%; /* controlled by the grid column */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #141414; /* subtle contrast */
+    padding: calc(var(--padding-size) + 6px);
+}
+
+/* images: fixed visual area so cards align, use object-fit to preserve aspect */
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+}
+
+/* push the link to the bottom so cards have consistent layout regardless of text length */
+.card a {
+    margin-top: auto;
+    display: inline-block;
+    padding-top: 6px;
+}
+
+/* typography spacing inside cards */
+.card h2 { margin: 6px 0 2px; }
+.card p { margin: 0 0 8px; color: #cfcfcf; }
+
+/* responsive breakpoints */
+@media (max-width: 900px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .cards { grid-template-columns: 1fr; }
+    .card img { height: 200px; }
+}
+
+@media (max-width: 600px) {
+    header {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: calc(var(--padding-size) * 0.9);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 1.05rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        line-height: 1; /* remove extra descender space */
+    }
+
+    header h1 i { display: inline-block; vertical-align: middle; font-size: 1em; line-height: 1.0; }
+    header, footer { outline-width: 2px; }
+}
+
+/* cv page layout */
+.cv { max-width: 900px; margin: 12px auto; display: flex; flex-direction: column; gap: 14px; }
+.cv-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border: 3px solid var(--outline-color); padding: 12px; border-radius: 10px; background: #141414; }
+.cv-title h1 { margin: 0 0 4px; font-size: 1.4rem; }
+.cv-tagline { margin: 0; color: #cfcfcf; }
+.cv-contact { list-style: none; margin: 0; padding: 0; text-align: right; }
+.cv-contact li { margin: 0; }
+.cv-section { border: 3px solid var(--outline-color); border-radius: 10px; background: #141414; padding: 12px; }
+.cv-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cv-list { display: flex; flex-direction: column; gap: 10px; }
+.cv-item-head { display: flex; justify-content: space-between; gap: 10px; }
+.cv-actions { display: flex; justify-content: flex-end; }
+.cv-actions button { border: 2px solid var(--outline-color); background: #141414; color: inherit; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+
+@media print {
+    body { background: #fff; color: #000; }
+    header, footer, .cv-actions, script { display: none !important; }
+    .cv, .cv-section, .cv-header { max-width: 100%; border-color: #000; background: #fff; }
+    a { color: #000; text-decoration: none; }
+    .is-active { text-decoration: none; }
+}
+
+.underline_me {
+    text-decoration: underline !important; /* override other styles */
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
+/* Lucide icons: make them behave like font icons (size with font-size, inherit color, align with text) */
+svg.lucide {
+    width: 1em;              /* match surrounding text size */
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.125em; /* nudge to sit on the text baseline similarly to FA */
+    fill: none;             /* Lucide uses stroke-based icons */
+    stroke: currentColor;   /* inherit text color */
+}
+
+header h1 svg.lucide {
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -0.15em;
+}
+
+.header-nav a svg.lucide,
+.footer-right a svg.lucide,
+.footer-left a svg.lucide {
+    width: 0.95em;
+    height: 0.95em;
+    vertical-align: -0.08em;
+}
+
+.card a svg.lucide {
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 6px;
+}
+
+/* project hero banner */
+.project-hero {
+    border: 3px solid var(--outline-color);
+    border-radius: 10px;
+    background: #141414;
+    overflow: hidden;
+    margin: 0 0 14px 0;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .project-hero img { height: 220px; }
+}
+
+/* project meta bar (tags + actions) */
+.meta-bar {
+    border: 3px solid var(--outline-color);
+    border-radius: 10px;
+    background: #141414;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 0 14px 0;
+}
+.tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.tag { border: 2px solid var(--outline-color); background: #1a1a1a; color: #cfcfcf; padding: 2px 8px; border-radius: 999px; font-size: 0.85em; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn { border: 2px solid var(--outline-color); background: #141414; color: inherit; padding: 6px 10px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.btn:hover { background: #1a1a1a; }
+
+/* prose typography for readable sections */
+.prose h1 { font-size: 1.6rem; margin: 0 0 10px; }
+.prose h2 { font-size: 1.2rem; margin: 16px 0 8px; }
+.prose h3 { font-size: 1.05rem; margin: 14px 0 6px; }
+.prose p { margin: 0 0 10px; color: #cfcfcf; }
+.prose ul { margin: 0 0 10px 0; padding-left: 1.2em; }
+.prose ol { margin: 0 0 10px 0; padding-left: 1.2em; }
+.prose li { margin: 4px 0; }
+.prose code { background: #1b1b1b; border: 1px solid var(--outline-color); padding: 0 4px; border-radius: 4px; }
+
+/* home hero layout */
+.hero { margin-bottom: 14px; }
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 14px;
+}
+.hero-panel {
+    border: 3px solid var(--outline-color);
+    border-radius: 10px;
+    background: #141414;
+    padding: 14px;
+    display: flex;
+    flex-direction: column; /* stack content vertically */
+}
+.hero-title { margin: 0 0 8px; font-size: 1.6rem; display: inline-flex; align-items: center; gap: 8px; }
+.hero-sub { margin: 0 0 10px; color: #cfcfcf; }
+.hero-ctas { display: flex; gap: 8px; flex-wrap: wrap; }
+.hero-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ensure CTAs and tags sit together at the bottom of the hero panel */
+.hero-actions {
+    margin-top: auto; /* pushes this block to the bottom */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.hero-tags .tag { font-size: 0.9em; }
+.hero-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.hero-gallery img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; display: block; }
+
+/* hero info list (right panel) */
+.hero-panel h3 { margin: 0 0 8px; font-size: 1.0rem; }
+.hero-list { display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; }
+.hero-item { border: 2px solid var(--outline-color); border-radius: 8px; background: #141414; }
+.hero-item a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; }
+.hero-item a:hover { background: #1a1a1a; }
+.hero-item .label { display: inline-flex; align-items: center; gap: 8px; color: #d9d9d9; }
+.hero-item .chevron { opacity: 0.85; }
+
+@media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-gallery img { height: 140px; }
+}
+
+/* removed abstract art variant */
+
+/* contact page form styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 700px;
+    margin: 12px auto;
+}
+
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea {
+    background: #0f0f0f;
+    border: 2px solid var(--outline-color);
+    color: inherit;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.contact-form textarea { min-height: 140px; resize: vertical; }
+
+.contact-form input[type="email"]:focus,
+.contact-form input[type="text"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #6aa8ff;
+    /* keep focus visible via border only to match site (no drop shadows) */
+}
+
+.contact-form input[type="submit"] {
+    align-self: flex-start;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid var(--outline-color);
+    background: #141414;
+    color: inherit;
+}
+
+@media (max-width: 600px) {
+    .contact-form { padding: 6px; margin: 8px; }
+    .contact-form input[type="submit"] { width: 100%; align-self: stretch; }
+}
+
+/* improved contact form visuals */
+.contact-header h1 { margin: 0 0 6px; font-size: 1.4rem; }
+.contact-intro { margin: 0 0 12px; color: #bfbfbf; }
+
+.form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+.form-row label { font-size: 0.92rem; color: #d9d9d9; }
+.form-control { width: 100%; }
+
+.btn-primary {
+    border: 2px solid var(--outline-color);
+    background: linear-gradient(180deg,#3b82f6,#2563eb);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 120ms ease, opacity 120ms ease;
+}
+.btn-primary:hover {
+    /* subtle brighten on hover; no shadows or movement */
+    background: linear-gradient(180deg,#60a5fa,#3b82f6);
+    opacity: 0.98;
+}
+.btn-primary:active { opacity: 0.95; }
+
+/* subtle variant for dark input backgrounds */
+.contact-form .form-control { background: #0f0f0f; border: 1px solid #2a2a2a; }
+
+@media (max-width: 600px) {
+    .btn-primary { width: 100%; }
+}

@@ -1,0 +1,95 @@
+{% extends 'fragments/base.html' %}
+
+{% block content %}
+<div class="container">
+<section class="hero" aria-label="Intro">
+    <div class="hero-grid">
+        <div class="hero-panel">
+            <h1 class="hero-title">Hi, I'm Ben <i data-lucide="hand"></i></h1>
+            <p class="hero-sub">{{ yearsOld }}-year-old programmer focused on game engine development in C++ and Rust.</p>
+            <div class="hero-actions">
+                <div class="hero-ctas">
+                    <a class="btn" href="/cv"><i data-lucide="file"></i> view my cv</a>
+                    <a class="btn" href="/contact"><i data-lucide="mail"></i> get in touch</a>
+                </div>
+                <div class="hero-tags">
+                    <span class="tag"><i data-lucide="code"></i> C/C++</span>
+                    <span class="tag"><i data-lucide="settings"></i> Rust</span>
+                    <span class="tag"><i data-lucide="moon"></i> Lua</span>
+                    <span class="tag"><i data-lucide="brackets"></i> Python</span>
+                    <span class="tag"><i data-lucide="git-branch"></i> Git</span>
+                </div>
+            </div>
+        </div>
+                <div class="hero-panel hero-media">
+                    {% if most_recent_contribution %}
+                    <h3>Latest GitHub contribution</h3>
+                    <div class="hero-list">
+                        <div class="hero-item">
+                            <a href="{{ most_recent_contribution.commit_url or most_recent_contribution.url }}" target="_blank" rel="noopener noreferrer">
+                                <div style="text-align:left">
+                                    <div class="label"><i data-lucide="git-branch"></i> {{ most_recent_contribution.name }}</div>
+                                    {% if most_recent_contribution.commit_message %}
+                                    <div style="font-size:0.95rem; color:#cfcfcf; margin-top:6px;">{{ most_recent_contribution.commit_message }}</div>
+                                    {% endif %}
+                                </div>
+                                <div style="text-align:right; min-width:90px;">
+                                    {% if most_recent_contribution.files_changed %}
+                                    <div style="font-size:0.9rem">{{ most_recent_contribution.files_changed }} files</div>
+                                    {% endif %}
+                                    <div style="font-size:0.85rem; color:#aeb0b0">+{{ most_recent_contribution.additions }} / -{{ most_recent_contribution.deletions }}</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <h3>Links</h3>
+                    <div class="hero-ctas">
+                        <a class="btn" href="{{ url_for('about') }}" data-link><i data-lucide="user"></i> About</a>
+                        <a class="btn" href="{{ url_for('cv') }}" data-link><i data-lucide="file-text"></i> CV</a>
+                        <a class="btn" href="{{ url_for('contact') }}" data-link><i data-lucide="mail"></i> Contact</a>
+                    </div>
+                </div>
+    </div>
+</section>
+
+<div class="cards">
+    <div class="card">
+        <img src="{{ url_for('static', filename='lunaticeditor.png') }}" alt="Screenshot">
+        <h2>lunatic engine</h2>
+        <p>a game engine for making 2D games in Lua with fluid workflows and rapid iteration.</p>
+        <a class="btn" href="/lunatic-engine">Learn more <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="card">
+        <img src="{{ url_for('static', filename='smrecord.png') }}" alt="Screenshot">
+        <h2>sm record</h2>
+        <p>a recorder for scrap mechanic to allow fluid playback despite the game's tickrate.</p>
+        <a class="btn" href="/sm-record">Learn more <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="card">
+        <img src="{{ url_for('static', filename='notepadrenderer.png') }}" alt="Screenshot">
+        <h2>notepad renderer</h2>
+        <p>a DLL mod for notepad that adds rendering capabilities at 60FPS without flickering (e.g. games!)</p>
+        <a class="btn" href="/notepad-renderer">Learn more <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="card">
+        <img src="{{ url_for('static', filename='rustigo.png') }}" alt="Screenshot">
+        <h2>rustigo</h2>
+        <p>a custom web server written in Rust, with zero dependencies, threadpools and URL routing.</p>
+        <a class="btn" href="/rustigo">Learn more <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="card">
+        <img src="{{ url_for('static', filename='imdl.png') }}" alt="Screenshot">
+        <h2>imdl</h2>
+        <p>a simple youtube downloader written in cpp using ytdlp under the hood.</p>
+        <a class="btn" href="/imdl">Learn more <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="card">
+        <img src="{{ url_for('static', filename='carbonlauncher.png') }}" alt="Screenshot">
+        <h2>carbon launcher</h2>
+        <p>a custom launcher for the game scrap mechanic, with mod support and enhanced features.</p>
+        <a class="btn" href="/carbon-launcher">Learn more <i data-lucide="arrow-right"></i></a>
+    </div>
+</div>
+{% endblock %}

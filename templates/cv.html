@@ -1,0 +1,91 @@
+{% extends 'fragments/base.html' %}
+
+{% block content %}
+<section class="cv" aria-label="Curriculum Vitae">
+    <header class="cv-header">
+        <div class="cv-title">
+            <h1>Ben McAvoy</h1>
+            <p class="cv-tagline">Student • Aspiring Developer • Open Source Enthusiast</p>
+        </div>
+        <ul class="cv-contact">
+            <!-- link to /contact -->
+            <li>Contact: <a class="underline_me" href="/contact">here</a></li>
+            <li>Location: England</li>
+            <li>GitHub: <a href="https://github.com/BenMcAvoy" target="_blank" rel="noopener noreferrer">@BenMcAvoy</a></li>
+        </ul>
+    </header>
+
+    <div class="cv-section">
+        <h2>Profile</h2>
+        <p>16-year-old developer with hands-on experience from work placements and personal projects. Keen on learning by building: game engines, tooling, and performant systems. Looking for opportunities to contribute, grow, and ship useful software.</p>
+    </div>
+
+    <div class="cv-section">
+        <h2>Skills</h2>
+        <div class="cv-two-col">
+            <ul>
+                <li>Languages: C/C++, Python, Lua, HTML/JS/CSS</li>
+                <li>Frameworks/Tools: Flask, Git/GitHub</li>
+                <li>Concepts: Algorithms, rendering, data structures, HTTP, REST</li>
+            </ul>
+            <ul>
+                <li>Soft: Communication, teamwork, time management</li>
+                <li>Mindset: Curious, self-directed, detail-oriented</li>
+                <li>Other: Linux/Windows, CLI, VS & VS Code</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cv-section">
+        <h2>Projects</h2>
+        <p>See my portfolio <a class="underline_me" href="/">here</a> or my GitHub <a class="underline_me" href="https://github.com/BenMcAvoy" target="_blank" rel="noopener noreferrer">here</a> for more details.</p>
+    </div>
+
+    <div class="cv-section">
+        <h2>Work Experience (Placements)</h2>
+        <div class="cv-list">
+            <div class="cv-item">
+                <div class="cv-item-head">
+                    <strong>Yunex Traffic — Contractor</strong>
+                </div>
+                <ul>
+                    <li>Learnt more about embedded development and built firmware for a new product.</li>
+                    <li>Gained experience with C, embedded systems, and teamwork in a professional setting.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="cv-section">
+        <h2>Education</h2>
+        <div class="cv-list">
+            <div class="cv-item">
+                <div class="cv-item-head">
+                    <strong>The Bishop of Winchester Academy</strong>
+                </div>
+                <p>9 GCSEs achieved with an A* in Computer Science</p>
+                <p>Currently focusing on a T-Level in software development (2025-2027)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cv-section">
+        <h2>Interests</h2>
+        <ul>
+            <li>game development</li>
+            <li>open source</li>
+            <li>low-level systems</li>
+            <li>sailing</li>
+        </ul>
+    </div>
+
+    <div class="cv-section">
+        <h2>References</h2>
+        <p>Available on request. Contact me <a class="underline_me" href="/contact">here</a>.</p>
+    </div>
+
+    <div class="cv-actions">
+        <button onclick="window.print()" type="button" aria-label="Print CV">Print / Save as PDF</button>
+    </div>
+</section>
+{% endblock %}

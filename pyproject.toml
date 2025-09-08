@@ -1,0 +1,21 @@
+[project]
+name = "benmcavoy-uk"
+version = "0.1.0"
+description = "Portfolio and CV site for Ben McAvoy"
+authors = [
+  { name = "Ben McAvoy", email = "ben.mcavoy@tutanota.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+  "Flask",
+  "livereload",
+  "requests",
+  "python-dotenv",
+  "sib_api_v3_sdk"
+]
+
+[project.urls]
+Homepage = "https://benmcavoy.uk"
+Repository = "https://github.com/BenMcAvoy/benmcavoy.uk"

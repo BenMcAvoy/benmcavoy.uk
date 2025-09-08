@@ -1,0 +1,24 @@
+{% extends 'fragments/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="project-hero">
+    <img src="{{ url_for('static', filename='rustigo.png') }}" alt="Rustigo server screenshot">
+  </div>
+  <div class="meta-bar">
+    <div class="tags">
+      <span class="tag">Rust</span>
+      <span class="tag">HTTP</span>
+      <span class="tag">Threadpool</span>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://github.com/BenMcAvoy/rustigo" rel="noopener noreferrer"><i data-lucide="github"></i> Repo</a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h1>rustigo</h1>
+    <p>a custom web server written in Rust, with zero dependencies, threadpools and URL routing.</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'fragments/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="project-hero">
+    <img src="{{ url_for('static', filename='notepadrenderer.png') }}" alt="Notepad Renderer demo screenshot">
+  </div>
+  <div class="meta-bar">
+    <div class="tags">
+      <span class="tag">C++</span>
+      <span class="tag">Win32</span>
+      <span class="tag">Injection</span>
+    </div>
+    <div class="actions">
+  <a class="btn" href="https://github.com/BenMcAvoy/NotepadRenderer" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i> Repo</a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h1>Notepad Renderer</h1>
+    <p>A small game injected into the legacy Windows Notepad (win10 era) that renders at 60 FPS with no flicker.</p>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>Injects into notepad.exe and hooks the window procedure</li>
+      <li>Keyboard hook for input (WASD)</li>
+      <li>Immediate-mode style rendering into the Notepad text buffer</li>
+      <li>Avoids the classic Notepad renderer flicker</li>
+    </ul>
+
+    <h2>Demo</h2>
+    <p>Animated GIF demo is available in the README.</p>
+  </div>
+</div>
+{% endblock %}

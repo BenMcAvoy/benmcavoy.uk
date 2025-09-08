@@ -1,0 +1,27 @@
+{% extends 'fragments/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="project-hero">
+    <img src="{{ url_for('static', filename='imdl.png') }}" alt="ImDL app screenshot">
+  </div>
+  <div class="meta-bar">
+    <div class="tags">
+      <span class="tag">C++</span>
+      <span class="tag">yt-dlp</span>
+      <span class="tag">Dear ImGui</span>
+    </div>
+    <div class="actions">
+  <a class="btn" href="https://github.com/BenMcAvoy/ImDL/releases/latest/download/ImDL.exe" target="_blank" rel="noopener noreferrer"><i data-lucide="download"></i> Download</a>
+  <a class="btn" href="https://github.com/BenMcAvoy/ImDL" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i> Repo</a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h1>ImDL</h1>
+    <p>An immediate-mode GUI to download media from YouTube as MP4 or MP3 using yt-dlp — built for simplicity.</p>
+    <h2>Demo</h2>
+    <p>See the README for a short GIF demo.</p>
+  </div>
+</div>
+{% endblock %}
