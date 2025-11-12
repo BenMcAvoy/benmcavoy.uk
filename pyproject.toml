@@ -13,9 +13,18 @@ dependencies = [
   "livereload",
   "requests",
   "python-dotenv",
-  "sib_api_v3_sdk"
+  "sib_api_v3_sdk",
+  "gunicorn"
 ]
 
 [project.urls]
 Homepage = "https://benmcavoy.uk"
 Repository = "https://github.com/BenMcAvoy/benmcavoy.uk"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["static*", "templates*", "fragments*"]

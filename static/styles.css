@@ -340,8 +340,12 @@ header h1 svg.lucide {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 700px;
-    margin: 12px auto;
+    /* allow the form to use the full width of the surrounding .page box */
+    max-width: none;
+    width: 100%;
+    margin: 0; /* remove auto-centering so it fills the page inner area */
+    box-sizing: border-box;
+    padding: 0;
 }
 
 .contact-form input[type="email"],
@@ -375,6 +379,7 @@ header h1 svg.lucide {
     border: 2px solid var(--outline-color);
     background: #141414;
     color: inherit;
+    font-family: inherit;
 }
 
 @media (max-width: 600px) {
@@ -398,6 +403,7 @@ header h1 svg.lucide {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 120ms ease, opacity 120ms ease;
+    font-family: inherit;
 }
 .btn-primary:hover {
     /* subtle brighten on hover; no shadows or movement */
