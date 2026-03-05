@@ -211,11 +211,9 @@ def contact_post():
 
     return redirect(url_for('home'))
 
-
-if __name__ == "__main__":
+def register_template_routes():
     templates_dir = Path(app.root_path) / app.template_folder
 
-    # Dynamically register routes for each HTML template
     for tpl in sorted(templates_dir.rglob('*.html')):
         if 'fragments' in tpl.parts:
             continue
@@ -223,6 +221,10 @@ if __name__ == "__main__":
         rel = tpl.relative_to(templates_dir).as_posix()
         route = '/' if rel == 'index.html' else '/' + rel[:-5]
         endpoint = 'home' if rel == 'index.html' else Path(rel).stem.replace('-', '_')
+
         app.add_url_rule(route, endpoint, _make_view(rel))
 
+register_template_routes()
+
+if __name__ == "__main__":
     app.run(debug=bool(ENV_DEVELOPMENT))
