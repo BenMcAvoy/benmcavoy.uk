@@ -6,8 +6,7 @@
         <div class="hero-grid">
             <div class="hero-panel">
                 <h1 class="hero-title">Hi, I'm Ben <i data-lucide="hand"></i></h1>
-                <p class="hero-sub">{{ years_old }}-year-old programmer focused on game engine development in C++ and
-                    Rust.</p>
+                <p class="hero-sub">Software Development T Level student with industry experience at Yunex Traffic and J.P. Morgan. I build software in embedded systems, Linux and developer tooling.</p>
                 <div class="hero-actions">
                     <div class="hero-ctas">
                         <a class="btn" href="/cv"><i data-lucide="file"></i> view my cv</a>
@@ -30,19 +29,16 @@
                         <a href="{{ most_recent_contribution.commit_url or most_recent_contribution.url }}" target="_blank"
                             rel="noopener noreferrer">
                             <div style="text-align:left">
-                                <div class="label"><i data-lucide="git-branch"></i> {{ most_recent_contribution.name }}
-                                </div>
+                                <div class="label"><i data-lucide="git-branch"></i> {{ most_recent_contribution.name }}</div>
                                 {% if most_recent_contribution.commit_message %}
-                                <div style="font-size:0.95rem; color:#cfcfcf; margin-top:6px;">{{
-                                    most_recent_contribution.commit_message }}</div>
+                                <div style="font-size:0.95rem; color:#cfcfcf; margin-top:6px;">{{ most_recent_contribution.commit_message }}</div>
                                 {% endif %}
                             </div>
                             <div style="text-align:right; min-width:90px;">
                                 {% if most_recent_contribution.files_changed %}
                                 <div style="font-size:0.9rem">{{ most_recent_contribution.files_changed }} files</div>
                                 {% endif %}
-                                <div style="font-size:0.85rem; color:#aeb0b0">+{{ most_recent_contribution.additions }} /
-                                    -{{ most_recent_contribution.deletions }}</div>
+                                <div style="font-size:0.85rem; color:#aeb0b0">+{{ most_recent_contribution.additions }} / -{{ most_recent_contribution.deletions }}</div>
                             </div>
                         </a>
                     </div>
@@ -61,40 +57,41 @@
 
     <div class="cards">
         <div class="card">
-            <img src="{{ url_for('static', filename='lunaticeditor.png') }}" alt="Screenshot">
-            <h2>lunatic engine</h2>
-            <p>a game engine for making 2D games in Lua with fluid workflows and rapid iteration.</p>
+            <img src="{{ url_for('static', filename='lunaticeditor.png') }}" alt="LunaticEngine editor screenshot">
+            <h2>LunaticEngine</h2>
+            <p>A C++20 2D engine and editor with OpenGL rendering, ImGui tools and LuaJIT scripting.</p>
             <a class="btn" href="/lunatic-engine">learn more <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="card">
-            <img src="{{ url_for('static', filename='smrecord.png') }}" alt="Screenshot">
-            <h2>sm record</h2>
-            <p>a recorder for scrap mechanic to allow fluid playback despite the game's tickrate.</p>
+            <div class="project-art" aria-hidden="true"><i data-lucide="lightbulb"></i></div>
+            <h2>Taskbulb</h2>
+            <p>A Rust Windows system tray app for controlling Home Assistant lights and monitor brightness.</p>
+            <a class="btn" href="https://github.com/BenMcAvoy/Taskbulb" target="_blank" rel="noopener noreferrer">view project <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div class="card">
+            <div class="project-art" aria-hidden="true"><i data-lucide="clipboard-list"></i></div>
+            <h2>ApprenticeshipTracker</h2>
+            <p>A self-hosted vacancy tracker with role filters, employer grouping and application tracking.</p>
+            <a class="btn" href="https://github.com/BenMcAvoy/ApprenticeshipTracker" target="_blank" rel="noopener noreferrer">view project <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div class="card">
+            <div class="project-art project-art-logo"><img src="https://raw.githubusercontent.com/BenMcAvoy/StrawberryVM/main/assets/logo-256x256.png" alt="StrawberryVM logo"></div>
+            <h2>StrawberryVM</h2>
+            <p>A Rust fantasy computer with its own instruction set, assembler, runner and interactive REPL.</p>
+            <a class="btn" href="https://github.com/BenMcAvoy/StrawberryVM" target="_blank" rel="noopener noreferrer">view project <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/BenMcAvoy/TRV-Emu/main/branding/logo.png" alt="TRV-Emu logo">
+            <h2>TRV-Emu</h2>
+            <p>An experimental C++ RISC-V emulator prototype with instruction decoding and an interactive memory and register view.</p>
+            <a class="btn" href="https://github.com/BenMcAvoy/TRV-Emu" target="_blank" rel="noopener noreferrer">view project <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='smrecord.png') }}" alt="SM-Record in-game interface screenshot">
+            <h2>SM-Record</h2>
+            <p>An experimental Direct3D 11 capture mod for Scrap Mechanic that saves gameplay as numbered PNG frames.</p>
             <a class="btn" href="/sm-record">learn more <i data-lucide="arrow-right"></i></a>
         </div>
-        <div class="card">
-            <img src="{{ url_for('static', filename='notepadrenderer.png') }}" alt="Screenshot">
-            <h2>notepad renderer</h2>
-            <p>a DLL mod for notepad that adds rendering capabilities at 60FPS without flickering (e.g. games!)</p>
-            <a class="btn" href="/notepad-renderer">learn more <i data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="card">
-            <img src="{{ url_for('static', filename='rustigo.png') }}" alt="Screenshot">
-            <h2>rustigo</h2>
-            <p>a custom web server written in Rust, with zero dependencies, threadpools and URL routing.</p>
-            <a class="btn" href="/rustigo">learn more <i data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="card">
-            <img src="{{ url_for('static', filename='imdl.png') }}" alt="Screenshot">
-            <h2>imdl</h2>
-            <p>a simple youtube downloader written in cpp using ytdlp under the hood.</p>
-            <a class="btn" href="/imdl">learn more <i data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="card">
-            <img src="{{ url_for('static', filename='carbonlauncher.png') }}" alt="Screenshot">
-            <h2>carbon launcher</h2>
-            <p>a custom launcher for the game scrap mechanic, with mod support and enhanced features.</p>
-            <a class="btn" href="/carbon-launcher">learn more <i data-lucide="arrow-right"></i></a>
-        </div>
     </div>
-    {% endblock %}
+</div>
+{% endblock %}
